@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "@/app/css/page.module.scss";
+import styles from "@styles/page.module.scss";
 import Button from "@/app/_components/Button";
 
 export default function Home() {
