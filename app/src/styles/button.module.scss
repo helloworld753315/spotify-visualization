@@ -15,3 +15,36 @@
   align-items: center;
   text-align: center;
 }
+
+.radiobutton {
+  //display: block;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  //padding: 10px;
+  label{
+    padding: 10px;;
+    border-radius: 12px;
+    //background: #FFFFFF;
+    background-color: #1DB954;
+    box-shadow: 1px 1px 5px 5px rgba(234, 234, 234, 0.40);
+    margin: auto 5px;
+  }
+
+  input[type=radio] {
+    display: none;
+  }
+}
+
+.visuallyhidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
