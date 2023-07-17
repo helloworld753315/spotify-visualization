@@ -24,18 +24,19 @@
   flex-shrink: 0;
 
   label{
-    padding: 10px;;
+    cursor: pointer;
+    padding: 10px;
     border-radius: 12px;
     box-shadow: 1px 1px 5px 5px rgba(234, 234, 234, 0.40);
     margin: auto 5px;
   }
 
   .on_button{
-    background-color: #1DB954;
+    background-color: variables.$green;
   }
 
   .off_button{
-    background-color: #ffffff;
+    background-color: variables.$white;
   }
 
   input[type=radio] {
