@@ -17,14 +17,12 @@
 }
 
 .radiobutton {
-  //display: block;
   display: flex;
   flex-wrap: wrap;
   text-align: center;
   justify-content: center;
   flex-shrink: 0;
 
-  //padding: 10px;
   label{
     padding: 10px;;
     border-radius: 12px;

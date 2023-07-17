@@ -9,21 +9,6 @@ type Props = {
 export default function RadioButtonGroup(props: Props) {
 
   return (
-    /*
-    <div>
-      {props.options.map((option) => (
-        <label key={option} className={`${styles.radiobutton}`}>
-          <input
-            type="radio"
-            value={option}
-            checked={props.selectedOption === option}
-            onChange={props.onChange}
-          />
-          {option}
-        </label>
-      ))}
-    </div>
-    */
     <div className={styles.radiobutton}>
       {props.options.map((option) => (
         <label key={option} className={props.selectedOption === option ? `${styles.on_button}` : `${styles.off_button}`}>
