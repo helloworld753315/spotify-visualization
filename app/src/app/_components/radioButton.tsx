@@ -12,7 +12,7 @@ export default function RadioButtonGroup(props: Props) {
     /*
     <div>
       {props.options.map((option) => (
-        <label key={option} className={styles.radiobutton}>
+        <label key={option} className={`${styles.radiobutton}`}>
           <input
             type="radio"
             value={option}
@@ -26,7 +26,7 @@ export default function RadioButtonGroup(props: Props) {
     */
     <div className={styles.radiobutton}>
       {props.options.map((option) => (
-        <label key={option} className={`${styles.radiobutton}`}>
+        <label key={option} className={props.selectedOption === option ? `${styles.on_button}` : `${styles.off_button}`}>
           <input
             type="radio"
             value={option}
