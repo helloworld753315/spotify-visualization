@@ -1,10 +1,10 @@
 "use client"
 
-import Image from "next/image";
 import styles from "@styles/page.module.scss";
 import Button from "@/app/_components/Button";
 import RadioButtonGroup from "@/app/_components/radioButton";
-import Card from "@/app/_components/Card";
+import Playlist from "@/app/_components/Playlist";
+import Track from "@/app/_components/Track"
 import { useState } from "react";
 
 
@@ -23,9 +23,9 @@ export default function Home() {
         selectedOption={selectedOption}
         onChange={handleOptionChange}
       />
-
       <br />
-      <Card playlistName="プレイリスト名1" url="http://www.example.com" image="https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228"></Card>
+      <Track trackName="曲名1" artist="アーティスト名1" url="http://www.example.com" image="https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228" rate={80}></Track>
     </div>
   );
+  // <Playlist playlistName="プレイリスト名1" url="http://www.example.com" image="https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228"></Playlist>
 }
