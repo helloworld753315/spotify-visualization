@@ -24,7 +24,7 @@ export default function Home() {
         onChange={handleOptionChange}
       />
       <br />
-      <Track trackName="曲名1" artist="アーティスト名1" url="http://www.example.com" image="https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228" rate={80}></Track>
+      <Track trackName="曲名1" artist="アーティスト名1" url="http://www.example.com" image="https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228" rate={60}></Track>
     </div>
   );
   // <Playlist playlistName="プレイリスト名1" url="http://www.example.com" image="https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228"></Playlist>

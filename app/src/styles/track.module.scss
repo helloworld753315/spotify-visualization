@@ -1,34 +1,51 @@
 @use "@styles/_variables.scss" as variables;
 
 .track_countainer {
+  background-color: #ffffff;
 
-  display:grid;
-  grid-template-rows: 100px auto;
-  grid-template-columns: 120px 1fr;
+  width: 600px;
+  height: 120px;
 
-  img {
-    width: 100px;
-    height: 100px;
-    flex-shrink: 0;
-    border-radius: 12px;
-  }
-  .track_name {
-    color: #424242;
-    font-family: Noto Sans JP;
-    font-size: 26px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    margin: 2px auto;
-  }
-  .artist_name {
-    color: #424242;
-    font-family: Noto Sans JP;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin: 2px auto;
+  border-radius: 12px;
+
+  .track {
+    display: grid;
+    grid-template-rows: 100px auto;
+    grid-template-columns: 120px 1fr;
+    position: relative;
+    justify-items: start;
+
+
+    .colmun{
+      margin: 10px;
+      height: 100px;
+    }
+
+    img {
+      width: 100px;
+      height: 100px;
+      flex-shrink: 0;
+      border-radius: 12px;
+      margin: 10px;
+    }
+    .track_name {
+      color: variables.$primary_font;
+      font-family: Noto Sans JP;
+      font-size: 26px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      margin: 2px auto;
+    }
+    .artist_name {
+      color: variables.$primary_font;
+      font-family: Noto Sans JP;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin: 2px auto;
+    }
   }
 }
 
@@ -46,11 +63,10 @@
   display: block;
   width: 0;
   height: 7px;
-  background: variables.$green;
+  background: variables.$secondary;
   position: absolute;
   left: 0;
   top: 0;
   border-radius: 10px;
   transition: 0.5s ease-in-out;
-
 }
