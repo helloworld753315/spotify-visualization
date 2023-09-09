@@ -1,11 +1,11 @@
 @use "@styles/_variables.scss" as variables;
 
 .button {
-  background: variables.$green;
+  background: variables.$secondary;
   width: 110px;
   height: 45px;
   border: none;
-  box-shadow: 1px 1px 5px 5px rgba(234, 234, 234, 0.4);
+  box-shadow: variables.$primary_shadow;
   border-radius: 10px;
 
   font-family: "Noto Sans JP";
@@ -27,12 +27,12 @@
     cursor: pointer;
     padding: 10px;
     border-radius: 12px;
-    box-shadow: 1px 1px 5px 5px rgba(234, 234, 234, 0.40);
+    box-shadow: variables.$primary_shadow;
     margin: auto 5px;
   }
 
   .on_button{
-    background-color: variables.$green;
+    background-color: variables.$secondary;
   }
 
   .off_button{
