@@ -15,7 +15,6 @@ export interface TokenResponse {
  * 認可コードを利用してアクセストークンとリフレッシュトークンを取得する
  */
 export async function getTokens(code: string): Promise<TokenResponse> {
-  // 前のステップで保存されたコードベリファイアを取得
   const codeVerifier = localStorage.getItem('code_verifier');
   if (!codeVerifier) {
     throw new Error('Code verifier not found in localStorage');
@@ -97,7 +96,6 @@ export async function refreshAccessToken(refresh_token: string) {
 export function redirectToSpotifyAuth(codeVerifier: string, codeChallenge: string): void {
   const authUrl = new URL('https://accounts.spotify.com/authorize');
 
-  // 認可リクエストのパラメータ
   const params = {
     response_type: 'code',
     client_id: client_id,
@@ -107,13 +105,9 @@ export function redirectToSpotifyAuth(codeVerifier: string, codeChallenge: strin
     redirect_uri: redirect_uri,
   };
 
-  // URLにパラメータを追加
   authUrl.search = new URLSearchParams(params).toString();
-
-  // PKCEのコードベリファイアをローカルストレージに保存
   window.localStorage.setItem('code_verifier', codeVerifier);
 
-  // 認可ページにリダイレクト
   window.location.href = authUrl.toString();
 }
 
