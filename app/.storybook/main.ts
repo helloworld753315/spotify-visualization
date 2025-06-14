@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/nextjs-vite";
+import { resolve } from "path";
 
 const config: StorybookConfig = {
   "stories": [
@@ -18,6 +19,15 @@ const config: StorybookConfig = {
   },
   "staticDirs": [
     "../public"
-  ]
+  ],
+  viteFinal: async (config) => {
+    config.resolve = config.resolve || {};
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@": resolve(__dirname, "../src"),
+      "@styles": resolve(__dirname, "../src/styles"),
+    };
+    return config;
+  },
 };
 export default config;
