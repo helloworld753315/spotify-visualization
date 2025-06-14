@@ -11,3 +11,16 @@ services:
       - .env.${NODE_ENV}
     stdin_open: true
     tty: true
+    command: npm run dev
+
+  storybook:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "6006:6006"
+    volumes:
+      - ./app:/app
+    environment:
+      - NODE_ENV=development
+    command: npm run storybook -- --host 0.0.0.0 --no-open
