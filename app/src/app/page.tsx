@@ -1,11 +1,10 @@
 'use client'
 
 import styles from '@styles/page.module.scss'
-import Button from '@/app/_components/Button'
-import RadioButtonGroup from '@/app/_components/radioButton'
-import Playlist from '@/app/_components/Playlist'
-import Track from '@/app/_components/Track'
-import LoginButton from '@/app/_components/LoginButton'
+import RadioButtonGroup from '@/components/ui/RadioButton'
+import Playlist from '@/components/features/Playlist'
+import Track from '@/components/features/Track'
+import LoginButton from '@/components/features/LoginButton'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import {

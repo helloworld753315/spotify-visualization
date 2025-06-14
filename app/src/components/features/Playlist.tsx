@@ -6,7 +6,7 @@ type Props = {
   image: string
 };
 
-export default function Button(props: Props) {
+export default function Playlist(props: Props) {
   return (
     <div className={styles.card}>
       <img src={props.image} alt="プレイリストのジャケット画像" />
