@@ -1,0 +1,19 @@
+# Storybook用のDockerfile
+FROM node:20-alpine
+
+WORKDIR /app
+
+# package.jsonとpackage-lock.jsonをコピー
+COPY package*.json ./
+
+# 依存関係をインストール
+RUN npm ci
+
+# ソースコードをコピー
+COPY . .
+
+# Storybookのポート6006を開放
+EXPOSE 6006
+
+# Storybookを起動
+CMD ["npm", "run", "storybook"]
