@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from './Button';
-import { generateCodeVerifier, generateCodeChallenge, redirectToSpotifyAuth, getTokens } from "@/app/_libs/spotify";
+import Button from '@/components/ui/Button';
+import { generateCodeVerifier, generateCodeChallenge, redirectToSpotifyAuth } from "@/app/_libs/spotify";
 
 export default function LoginButton() {
   const handleLogin = async () => {

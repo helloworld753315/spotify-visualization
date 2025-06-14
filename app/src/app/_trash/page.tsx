@@ -1,10 +1,8 @@
 "use client"
 
 import styles from "@styles/page.module.scss";
-import Button from "@/app/_components/Button";
-import RadioButtonGroup from "@/app/_components/radioButton";
-import Playlist from "@/app/_components/Playlist";
-import Track from "@/app/_components/Track"
+import RadioButtonGroup from "@/components/ui/RadioButton";
+import Track from "@/components/features/Track"
 import { useState } from "react";
 // import SpotifyApi  from "@/app/_libs/spotify";
 
