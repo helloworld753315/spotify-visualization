@@ -7,8 +7,8 @@ services:
       - "3000:3000"
     volumes:
       - ./app:/app
-    env_file:
-      - .env.${NODE_ENV}
+    environment:
+      - NODE_ENV=development
     stdin_open: true
     tty: true
     command: npm run dev
