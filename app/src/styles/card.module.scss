@@ -1,21 +1,22 @@
-@use "@styles/_variables.scss" as variables;
+@use '@styles/_variables.scss' as variables;
 
-.card{
+// 基本カードスタイル
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 1px 1px 3px 3px rgba(234, 234, 234, 0.4);
+
+  // デフォルトサイズ（既存のカード）
   width: 150px;
   height: 196.84px;
   flex-shrink: 0;
-
-  border-radius: 15px;
-  background: #FFF;
-  box-shadow: 1px 1px 3px 3px rgba(234, 234, 234, 0.40);
   padding-top: 18px;
 
-  img{
+  img {
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-
     border-radius: 10px;
     width: 122.677px;
     height: auto;
@@ -23,12 +24,11 @@
     margin: 0 auto;
   }
 
-  p{
+  .title {
     display: flex;
     flex-direction: column;
     justify-content: center;
     flex-shrink: 0;
-
     color: variables.$primary_font;
     font-family: Noto Sans JP;
     font-size: 16px;
@@ -37,5 +37,107 @@
     line-height: normal;
     margin-left: auto;
     padding: 0 13px;
+  }
+
+  .subtitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: variables.$primary_font;
+    font-family: Noto Sans JP;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: auto;
+    padding: 0 13px;
+  }
+
+  // 後方互換性のため
+  p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: variables.$primary_font;
+    font-family: Noto Sans JP;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-left: auto;
+    padding: 0 13px;
+  }
+}
+
+// Track専用のカードスタイル
+.track_card {
+  width: 600px;
+  height: 120px;
+  padding: 0;
+
+  .track_content {
+    display: grid;
+    grid-template-rows: 100px auto;
+    grid-template-columns: 120px 1fr;
+    position: relative;
+    justify-items: start;
+    height: 100%;
+
+    .track_column {
+      margin: 10px;
+      height: 100px;
+    }
+
+    img {
+      width: 100px;
+      height: 100px;
+      flex-shrink: 0;
+      border-radius: 12px;
+      margin: 10px;
+    }
+
+    .track_name {
+      color: variables.$primary_font;
+      font-family: Noto Sans JP;
+      font-size: 26px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      margin: 2px auto;
+    }
+
+    .artist_name {
+      color: variables.$primary_font;
+      font-family: Noto Sans JP;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin: 2px auto;
+    }
+
+    .progress_back {
+      display: block;
+      width: 300px;
+      height: 7px;
+      background: #ccc;
+      position: relative;
+      border-radius: 10px;
+      margin: 10px 0;
+    }
+
+    .progress_front {
+      display: block;
+      width: 0;
+      height: 7px;
+      background: variables.$secondary;
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-radius: 10px;
+      transition: 0.5s ease-in-out;
+    }
   }
 }
