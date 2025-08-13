@@ -1,0 +1,181 @@
+@use '@styles/_variables.scss' as variables;
+
+.indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+
+  &.small {
+    .iconContainer {
+      font-size: 14px;
+    }
+    .label {
+      font-size: 9px;
+    }
+    .value {
+      font-size: 11px;
+    }
+  }
+
+  &.medium {
+    .iconContainer {
+      font-size: 18px;
+    }
+    .label {
+      font-size: 10px;
+    }
+    .value {
+      font-size: 12px;
+    }
+  }
+
+  &.large {
+    .iconContainer {
+      font-size: 24px;
+    }
+    .label {
+      font-size: 12px;
+    }
+    .value {
+      font-size: 14px;
+    }
+  }
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.2em;
+}
+
+.energyIcons {
+  display: flex;
+  gap: 1px;
+
+  .energyBolt {
+    transition: opacity 0.3s ease;
+  }
+
+  &.low .energyBolt:nth-child(n + 2) {
+    opacity: 0.2;
+  }
+
+  &.medium .energyBolt:nth-child(n + 3) {
+    opacity: 0.2;
+  }
+}
+
+.featureIcon {
+  transition: all 0.3s ease;
+
+  &.danceability-low {
+    opacity: 0.5;
+    animation: none;
+  }
+
+  &.danceability-medium {
+    animation: dance-light 2s ease-in-out infinite;
+  }
+
+  &.danceability-high {
+    animation: dance-strong 1.5s ease-in-out infinite;
+  }
+
+  &.acousticness-low {
+    opacity: 0.3;
+  }
+
+  &.acousticness-medium {
+    opacity: 0.6;
+  }
+
+  &.acousticness-high {
+    opacity: 1;
+  }
+}
+
+@keyframes dance-light {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+}
+
+@keyframes dance-strong {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(-10deg) scale(1.05);
+  }
+  75% {
+    transform: rotate(10deg) scale(1.05);
+  }
+}
+
+.label {
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: variables.$primary_font;
+  opacity: 0.7;
+  text-align: center;
+  font-weight: 500;
+}
+
+// Bar mode styles
+.bar {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  min-width: 120px;
+
+  .label {
+    min-width: 60px;
+    text-align: left;
+    font-size: 11px;
+  }
+
+  .value {
+    min-width: 35px;
+    text-align: right;
+    font-size: 11px;
+    font-weight: 600;
+  }
+}
+
+.barContainer {
+  flex: 1;
+  height: 6px;
+  background: #f0f0f0;
+  border-radius: 3px;
+  overflow: hidden;
+  min-width: 60px;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+// Percentage mode styles
+.percentage {
+  flex-direction: column;
+  gap: 2px;
+
+  .value {
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .label {
+    font-size: 10px;
+    opacity: 0.6;
+  }
+}
