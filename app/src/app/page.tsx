@@ -7,10 +7,7 @@ import Track from '@/components/features/Track'
 import LoginButton from '@/components/features/LoginButton'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import {
-  getTokens,
-  getUserPlaylists,
-} from '@/app/_libs/spotify'
+import { getTokens, getUserPlaylists } from '@/app/_libs/spotify'
 // import SpotifyApi  from "@/app/_libs/spotify";
 
 export default function Home() {
@@ -64,15 +61,15 @@ export default function Home() {
       ></Track>
       <LoginButton />
       <div>
-      {playlists.map((playlist) => (
-        <Playlist
-          key={playlist.id}
-          playlistName={playlist.name}
-          url={playlist.external_urls.spotify}
-          image={playlist.images[0]?.url || ''}
-        />
-      ))}
-    </div>
+        {playlists.map((playlist) => (
+          <Playlist
+            key={playlist.id}
+            playlistName={playlist.name}
+            url={playlist.external_urls.spotify}
+            image={playlist.images[0]?.url || ''}
+          />
+        ))}
+      </div>
     </div>
   )
   // <Playlist playlistName="プレイリスト名1" url="http://www.example.com" image="https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228"></Playlist>
