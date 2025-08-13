@@ -4,7 +4,7 @@ type Props = {
   playlistName: string
   url: string
   image: string
-};
+}
 
 export default function Playlist(props: Props) {
   return (
@@ -12,5 +12,5 @@ export default function Playlist(props: Props) {
       <img src={props.image} alt="プレイリストのジャケット画像" />
       <p>{props.playlistName}</p>
     </div>
-  );
+  )
 }

@@ -1,26 +1,26 @@
-const client_id = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID!;
-const client_secret = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET!;
-const redirect_uri = process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI!;
-const scope = 'user-read-private user-read-email';
+const client_id = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID!
+const client_secret = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET!
+const redirect_uri = process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI!
+const scope = 'user-read-private user-read-email'
 
 export interface TokenResponse {
-  access_token: string;
-  token_type: string;
-  expires_in: number;
-  refresh_token: string;
-  scope?: string;
+  access_token: string
+  token_type: string
+  expires_in: number
+  refresh_token: string
+  scope?: string
 }
 
 /**
  * 認可コードを利用してアクセストークンとリフレッシュトークンを取得する
  */
 export async function getTokens(code: string): Promise<TokenResponse> {
-  const codeVerifier = localStorage.getItem('code_verifier');
+  const codeVerifier = localStorage.getItem('code_verifier')
   if (!codeVerifier) {
-    throw new Error('Code verifier not found in localStorage');
+    throw new Error('Code verifier not found in localStorage')
   }
 
-  const url = 'https://accounts.spotify.com/api/token';
+  const url = 'https://accounts.spotify.com/api/token'
   const payload = {
     method: 'POST',
     headers: {
@@ -34,21 +34,23 @@ export async function getTokens(code: string): Promise<TokenResponse> {
       redirect_uri: redirect_uri,
       code_verifier: codeVerifier,
     }),
-  };
-
-  const response = await fetch(url, payload);
-
-  if (!response.ok) {
-    const errorText = await response.text();
-    throw new Error(`Failed to fetch tokens: ${response.status} ${response.statusText} - ${errorText}`);
   }
 
-  const data = (await response.json()) as TokenResponse;
+  const response = await fetch(url, payload)
+
+  if (!response.ok) {
+    const errorText = await response.text()
+    throw new Error(
+      `Failed to fetch tokens: ${response.status} ${response.statusText} - ${errorText}`
+    )
+  }
+
+  const data = (await response.json()) as TokenResponse
 
   // アクセストークンをローカルストレージに保存（必要に応じて）
-  localStorage.setItem('access_token', data.access_token);
+  localStorage.setItem('access_token', data.access_token)
 
-  return data;
+  return data
 }
 
 /**
@@ -59,11 +61,11 @@ export async function getUserPlaylists(access_token: string) {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
-  });
+  })
   if (!response.ok) {
-    throw new Error('Failed to fetch playlists');
+    throw new Error('Failed to fetch playlists')
   }
-  return response.json();
+  return response.json()
 }
 
 /**
@@ -73,7 +75,7 @@ export async function refreshAccessToken(refresh_token: string) {
   const params = new URLSearchParams({
     grant_type: 'refresh_token',
     refresh_token,
-  });
+  })
   const response = await fetch('https://accounts.spotify.com/api/token', {
     method: 'POST',
     headers: {
@@ -81,11 +83,11 @@ export async function refreshAccessToken(refresh_token: string) {
       'Content-Type': 'application/x-www-form-urlencoded',
     },
     body: params.toString(),
-  });
+  })
   if (!response.ok) {
-    throw new Error('Failed to refresh access token');
+    throw new Error('Failed to refresh access token')
   }
-  return response.json();
+  return response.json()
 }
 
 /**
@@ -94,7 +96,7 @@ export async function refreshAccessToken(refresh_token: string) {
  * @param codeChallenge PKCE用のコードチャレンジ
  */
 export function redirectToSpotifyAuth(codeVerifier: string, codeChallenge: string): void {
-  const authUrl = new URL('https://accounts.spotify.com/authorize');
+  const authUrl = new URL('https://accounts.spotify.com/authorize')
 
   const params = {
     response_type: 'code',
@@ -103,12 +105,12 @@ export function redirectToSpotifyAuth(codeVerifier: string, codeChallenge: strin
     code_challenge_method: 'S256',
     code_challenge: codeChallenge,
     redirect_uri: redirect_uri,
-  };
+  }
 
-  authUrl.search = new URLSearchParams(params).toString();
-  window.localStorage.setItem('code_verifier', codeVerifier);
+  authUrl.search = new URLSearchParams(params).toString()
+  window.localStorage.setItem('code_verifier', codeVerifier)
 
-  window.location.href = authUrl.toString();
+  window.location.href = authUrl.toString()
 }
 
 /**
@@ -116,9 +118,9 @@ export function redirectToSpotifyAuth(codeVerifier: string, codeChallenge: strin
  * @returns コードベリファイア
  */
 export function generateCodeVerifier(): string {
-  const array = new Uint8Array(64);
-  window.crypto.getRandomValues(array);
-  return Array.from(array, byte => ('0' + byte.toString(16)).slice(-2)).join('');
+  const array = new Uint8Array(64)
+  window.crypto.getRandomValues(array)
+  return Array.from(array, (byte) => ('0' + byte.toString(16)).slice(-2)).join('')
 }
 
 /**
@@ -127,11 +129,11 @@ export function generateCodeVerifier(): string {
  * @returns コードチャレンジ
  */
 export async function generateCodeChallenge(codeVerifier: string): Promise<string> {
-  const encoder = new TextEncoder();
-  const data = encoder.encode(codeVerifier);
-  const digest = await window.crypto.subtle.digest('SHA-256', data);
+  const encoder = new TextEncoder()
+  const data = encoder.encode(codeVerifier)
+  const digest = await window.crypto.subtle.digest('SHA-256', data)
   return btoa(String.fromCharCode(...new Uint8Array(digest)))
     .replace(/\+/g, '-')
     .replace(/\//g, '_')
-    .replace(/=+$/, '');
+    .replace(/=+$/, '')
 }

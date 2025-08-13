@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { fn } from '@storybook/test';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
+import { fn } from '@storybook/test'
 
-import LoginButton from './LoginButton';
+import LoginButton from './LoginButton'
 
 const meta = {
   title: 'Features/LoginButton',
@@ -10,9 +10,9 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof LoginButton>;
+} satisfies Meta<typeof LoginButton>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
-export const Default: Story = {};
+export const Default: Story = {}

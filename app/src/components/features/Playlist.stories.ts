@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
-import Playlist from './Playlist';
+import Playlist from './Playlist'
 
 const meta = {
   title: 'Features/Playlist',
@@ -14,10 +14,10 @@ const meta = {
     url: { control: 'text' },
     image: { control: 'text' },
   },
-} satisfies Meta<typeof Playlist>;
+} satisfies Meta<typeof Playlist>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
@@ -25,7 +25,7 @@ export const Default: Story = {
     url: 'https://open.spotify.com/playlist/example',
     image: 'https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228',
   },
-};
+}
 
 export const JapanesePlaylist: Story = {
   args: {
@@ -33,7 +33,7 @@ export const JapanesePlaylist: Story = {
     url: 'https://open.spotify.com/playlist/jpop',
     image: 'https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228',
   },
-};
+}
 
 export const LongName: Story = {
   args: {
@@ -41,4 +41,4 @@ export const LongName: Story = {
     url: 'https://open.spotify.com/playlist/long',
     image: 'https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228',
   },
-};
+}

@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
-import Track from './Track';
+import Track from './Track'
 
 const meta = {
   title: 'Features/Track',
@@ -16,10 +16,10 @@ const meta = {
     image: { control: 'text' },
     rate: { control: { type: 'range', min: 0, max: 100, step: 1 } },
   },
-} satisfies Meta<typeof Track>;
+} satisfies Meta<typeof Track>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
@@ -29,7 +29,7 @@ export const Default: Story = {
     image: 'https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228',
     rate: 60,
   },
-};
+}
 
 export const HighRate: Story = {
   args: {
@@ -39,7 +39,7 @@ export const HighRate: Story = {
     image: 'https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228',
     rate: 95,
   },
-};
+}
 
 export const LowRate: Story = {
   args: {
@@ -49,7 +49,7 @@ export const LowRate: Story = {
     image: 'https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228',
     rate: 15,
   },
-};
+}
 
 export const LongNames: Story = {
   args: {
@@ -59,4 +59,4 @@ export const LongNames: Story = {
     image: 'https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228',
     rate: 75,
   },
-};
+}

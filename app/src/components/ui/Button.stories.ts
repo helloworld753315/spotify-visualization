@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 // import { fn } from '@storybook/test';
 
-import Button from './Button';
+import Button from './Button'
 
 const meta = {
   title: 'UI/Button',
@@ -15,30 +15,30 @@ const meta = {
     title: { control: 'text' },
   },
   args: { onClick: () => {} },
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof Button>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
     children: 'ボタン',
   },
-};
+}
 
 export const WithTitle: Story = {
   args: {
     children: 'タイトル付きボタン',
     title: 'ボタンのタイトル',
   },
-};
+}
 
 export const Colored: Story = {
   args: {
     children: 'カラーボタン',
     color: '#1db954',
   },
-};
+}
 
 export const Login: Story = {
   args: {
@@ -46,4 +46,4 @@ export const Login: Story = {
     color: '#1db954',
     title: 'Spotifyでログイン',
   },
-};
+}
